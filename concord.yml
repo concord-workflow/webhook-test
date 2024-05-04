@@ -1,5 +1,13 @@
 configuration:
   runtime: "concord-v2"
+triggers:
+  - github:
+      version: 2
+      useInitiator: true
+      entryPoint: default
+      conditions:
+        type: ".*"
+        githubRepo: ".*"
 flows:
   default:
-    - log: "yo!"
+    - log: "yo, ${event}!"
